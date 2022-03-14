@@ -1,7 +1,7 @@
 version: 2.1
 orbs:
   aws-s3: circleci/aws-s3@1.0.4
-  aws-cli: circleci/aws-cli@2.0.3
+ 
 jobs:
   build:
     docker:
@@ -11,8 +11,7 @@ jobs:
     steps:
       - checkout
       - run: npm install
-      - aws-cli/install
-      - aws-cli/setup
+    
       - run: npm run build
 
       - aws-s3/sync:
